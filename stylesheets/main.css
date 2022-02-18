@@ -1,0 +1,401 @@
+:root {
+  --azul: #0293ED;  
+  --azul-highlight: #57bfff;  
+  --azul-contrast: #0277C0;
+  --cinza: #e7e5e5;
+}
+
+.responsivo { display: none; }
+
+body { background-color: #ffffff; }
+main { overflow-x: hidden; }
+section { padding: 30px 0; }
+p { max-width: 700px; }
+img { image-rendering: -webkit-optimize-contrast; }
+
+
+/* TÍTULOS */
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  padding: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+h1.faixa {
+  padding-bottom: 8px;
+}
+.faixa {  
+  position: relative;  
+}
+.faixa:after {  
+  content: "";
+  height: 10px;
+  width: 200vw;
+  background-color: #039bf9;
+  position: absolute;  
+  left: 0;
+  bottom: -12px;
+}
+
+/* Título com borda */
+h1.texto-outline {
+  font-size: 6rem;
+  text-transform: none;  
+  line-height: 1.3;
+}
+@supports (-webkit-text-stroke: black) {
+  h1.texto-outline {    
+    font-weight: 500;  
+    -webkit-text-stroke: 5px black;    
+    color: white;
+    position: relative;  
+  }
+  h1.texto-outline:before {
+    content: "fraude acadêmica";
+    position: absolute;
+    left: 0;
+    bottom: -3.2%;
+    z-index: -1;
+    -webkit-text-stroke: 3px var(--azul);    
+    color: var(--azul);
+  }
+  h1.texto-outline:after {
+    content: "fraude acadêmica";
+    position: absolute;
+    -webkit-text-stroke-width: 0;  
+    left: 0;
+    top: 0;
+  }  
+}
+@supports not (-webkit-text-stroke: black) {
+  h1.texto-outline {  
+    font-weight: 700;
+    color: black;  
+  }  
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 2rem;
+  text-transform: lowercase;
+}
+h2::before {
+  content: "";
+  display: inline-block;
+  background-color: var(--azul);
+  width: 20px;
+  height: 8px;
+  margin-right: 4px;
+  position: relative;
+  bottom: -8px;
+}
+
+h3 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* ELEMENTOS LAYOUT */
+.secao-cinza {
+  background-color: var(--cinza);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.quadro {
+  background-color: white;
+  border: 2px solid black;
+  padding: 2em;
+}
+.quadro p:last-child {
+  margin-bottom: 0;
+}
+
+/* Caixa preta */
+.caixa-preta {  
+  color: white;  
+  position: relative;
+  margin: 2rem 0 2rem 12px;
+}
+.caixa-preta>div {
+  padding: 24px;
+}
+.caixa-preta p {
+  max-width: 600px;
+  margin-bottom: 0;
+}
+.caixa-preta:before {
+  content: "";
+  height: 100%;
+  width: 100vw;
+  display: block;
+  position: absolute;
+  background-color: black;
+  z-index: -1;
+}
+.caixa-preta:after {
+  content: "";
+  height: 80%;
+  width: 100vw;
+  display: block;
+  position: absolute;
+  background-color: transparent;
+  bottom: 0;
+  z-index: -1;
+  box-shadow:
+    -10px 10px 0 white,
+    -13px 13px 0 black;
+}
+
+/* Moldura */
+.moldura {  
+  width: 700px;
+  max-width: 100%;
+  margin: 2rem auto;
+  position: relative;
+  border: 3px solid black;
+}
+.moldura p:last-child {
+  margin-bottom: 0;
+}
+.moldura:before, .moldura:after {
+  content: "";
+  display: block;
+  height: 0;
+  width: 50vw;    
+  border-top: 3px solid black;
+  position: absolute;
+  top: calc((100% - 3px)/2);
+  
+}
+.moldura:before {
+  left: -50vw;
+}
+.moldura:after {
+  right: -50vw
+}
+.moldura>div {
+  background-color: white;
+  margin: -10px 16px;
+  padding: 20px 20px;
+  text-align: center;  
+}
+.moldura>div:before, .moldura>div:after {
+  content: "";     
+  background-repeat: no-repeat;    
+  height: 100%;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.moldura>div:before {
+  background-image: url(../assets/moldura-decoracao-l.svg);
+  background-position: right 8vw center;
+  left: -50vw;
+}
+.moldura>div:after {
+  background-image: url(../assets/moldura-decoracao-r.svg);
+  background-position: left 8vw center;
+  right: -50vw;  
+}
+@media (max-width: 1199.98px) {
+  .moldura>div:before {    
+    background-position: right 5vw center;    
+  }
+  .moldura>div:after {    
+    background-position: left 5vw center;    
+  }  
+}
+@media (max-width: 991.98px) {
+  .moldura {  
+    width: 80vw;    
+  }      
+  .moldura>div:before {    
+    background-position: right 20px center;    
+  }
+  .moldura>div:after {    
+    background-position: left 20px center;    
+  }    
+}
+
+/* DECORAÇÃO */
+.clip_quadro {
+  position: absolute;  
+  bottom: 12px;
+  left: -38px;
+}
+.lapis {
+  position: absolute;
+  height: 70px;
+  top: -70px;
+  right: 0px;
+}
+
+/* TEXTO */
+.destaque {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+/* Grifado animado */
+/* https://codepen.io/AllThingsSmitty/pen/zGpgQK/ */
+.highlight {  
+  background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, var(--azul-highlight) 50%);
+  background-position: -0% 0;
+  background-size: 200% auto;  
+  transition: background-position 0.5s ease-out;
+  padding: 0 3px;
+}
+.highlight--highlighted {
+  background-position: -100% 0;
+}
+.slow-transition.highlight {
+  transition: background-position .9s ease-out;
+}
+
+
+/* BOTÕES */
+button:disabled {
+  pointer-events: none;
+  color: black;
+  opacity: 0.3; 
+}
+
+.botao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  padding: 20px 10px;
+  min-height: 110px;  
+  border: 3px solid black;
+  cursor: pointer;
+}
+.botao-link:hover {
+  text-decoration: none;
+}
+.botao:focus {
+  outline: none;
+}
+
+/* Botão link */
+.botao-link {  
+  font-size: 20px;
+  padding: 20px 10px;
+  min-height: 100px;  
+  cursor: pointer;
+  border: 4px solid black;
+}
+.botao-link:hover {
+  text-decoration: none;
+}
+.link-externo {
+  position: relative;
+  left: -10px;
+}
+.link-externo:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 15px;
+  width: 15px;  
+  background-image: url(../assets/icon-link-ext.svg);
+  background-repeat: no-repeat;
+  right: -20px;
+  top: 5px;
+  transition: 0.3s;
+}
+.botao-link:hover .link-externo:after,
+.botao-link:focus .link-externo:after  {
+  filter: invert(100%);
+}
+
+/* Hover effect - de Hover.css
+https://ianlunn.github.io/Hover/#effects */
+/* Sweep To Right */
+.hvr-sweep-to-right {
+  /* display: block;
+  vertical-align: middle; */
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: black;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
+}
+
